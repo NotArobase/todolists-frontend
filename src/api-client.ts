@@ -1,13 +1,17 @@
+import { ListsApi } from 'todo-list-client'
+
 const lists = ['Work Tasks', 'Personal Tasks', 'Shopping List']
 const listItems: Record<string, string[]> = {
     'Work Tasks': ['Buy groceries', 'Complete React project', 'Exercise for 30 minutes', 'Read a book chapter'],
     'Personal Tasks': ['Buy groceries', 'Complete React project', 'Exercise for 30 minutes', 'Read a book chapter'],
     'Shopping List': ['Buy groceries', 'Complete React project', 'Exercise for 30 minutes', 'Read a book chapter']
 }
+const api = new ListsApi();
 
 export const apiClient = {
     getLists: async () => {
-        return Promise.resolve(lists)
+        const response = await api.listsGet();
+        return response.data;
     },
     addList: async (listName: string) => {
         lists.push(listName)

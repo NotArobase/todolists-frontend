@@ -15,9 +15,9 @@ export default function App() {
   const [showTodoForm, setShowTodoForm] = useState(false);
   const [selectedListItems, setSelectedListItems] = useState<string[]>([]);
 
-  useEffect(() => {
-    apiClient.getLists().then(setLists);
-  }, []);
+  // useEffect(() => {
+  //   apiClient.getLists().then(setLists);
+  // }, []);
 
   useEffect(() => {
     if (selectedList) {
